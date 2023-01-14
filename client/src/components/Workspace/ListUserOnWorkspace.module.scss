@@ -1,0 +1,151 @@
+.user_container {
+  background: rgb(255, 255, 255);
+  border-radius: 7px;
+  box-shadow: 5px 5px 15px -1px rgba(0, 16, 234, 0.1);
+  padding: 1.2rem;
+  color: rgb(30, 41, 59);
+  border: 1px solid rgb(190, 238, 255);
+  width: 100%;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgb(0, 79, 163);
+      text-align: center;
+    }
+
+    .action {
+      button {
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        background-color: rgb(255, 255, 255);
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .user_list {
+    margin-top: 2px;
+    border-radius: 7px;
+    background-color: #fff;
+
+    p {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border: 1px solid grey;
+      border-radius: 5px;
+
+      thead {
+        th {
+          color: black;
+          text-transform: capitalize;
+          font-weight: 400;
+          border-bottom: 1px solid grey;
+          font-size: 1rem;
+          text-align: left;
+          width: fit-content;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .thaction {
+          color: black;
+          text-transform: capitalize;
+          font-weight: 400;
+          font-size: 1rem;
+          text-align: center;
+          width: fit-content;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+
+      tbody {
+        //nope
+
+        td {
+          padding-left: 1rem;
+          font-size: 1rem;
+          text-align: left;
+        }
+
+        .remove {
+          button {
+            border: none;
+            background: white;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            .iconDelete {
+              cursor: pointer;
+              font-size: 25px;
+              color: navy;
+
+              &:hover {
+                color: red;
+              }
+            }
+          }
+        }
+
+        .tdcheck {
+          text-align: center;
+
+          input {
+            cursor: pointer;
+          }
+        }
+      }
+
+      @media screen and (max-width: 570px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+
+    .contBut {
+      font-family: "Poppins";
+      font-weight: 400;
+      width: 100%;
+      padding: 0.21rem;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      border: none;
+      border-radius: 5px;
+      background-color: rgb(255, 255, 255);
+
+      a {
+        padding: 10px;
+        margin: 6px;
+        border-radius: 5px;
+        color: #334762;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(0, 0, 169);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .activeBut {
+      a {
+        color: rgb(16, 16, 16);
+        font-weight: 500;
+      }
+    }
+  }
+}

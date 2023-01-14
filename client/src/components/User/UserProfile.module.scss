@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  .back_icon {
+    display: flex;
+    .link {
+      font-size: 2rem;
+      color: #2b2384;
+      text-decoration: none;
+
+      &:hover {
+        color: #464b70;
+      }
+    }
+  }
+
+  .delete_icon {
+    button {
+      cursor: pointer;
+      background-color: #edf0fd;
+      font-size: 2rem;
+      color: #2b2384;
+      border: none;
+
+      &:hover {
+        color: #d70404;
+      }
+    }
+  }
+}
+
+.container {
+  background: white;
+  border: 1px solid rgb(125, 218, 252);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -1px rgba(0, 85, 203, 0.1);
+}

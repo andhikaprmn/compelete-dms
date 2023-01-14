@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - 3306:3306
+    networks:
+      - pepz-networks
+    volumes:
+      - mysql-volumes:/var/lib/mysql
+
+  api:
+    image: dhikaprmn/backdms:1.0
+    ports:
+      - 5000:5000
+
+  client:
+    image: dhikaprmn/frontdms:1.0
+    ports:
+      - 3000:3000
+
+networks:
+  pepz-networks:
+
+volumes:
+  mysql-volumes:

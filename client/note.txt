@@ -1,0 +1,321 @@
+{
+    headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJuYW1lIjoiVGVzdCBMb2dpbiIsImVtYWlsIjoibG9naW5AZ21haWwuY29tIiwiaWF0IjoxNjUzNzQxODA1LCJleHAiOjE2NTQzNDY2MDV9._aGz7_Fj8yIwxEBeXGXiJLCwd3_MH-GDXYKuauUDbes",
+    },
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+const [name, setName] = useState("");
+  const [token, setToken] = useState("");
+  const [expire, setExpire] = useState("");
+  const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getUser();
+    refreshToken();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await Axios.get("http://localhost:5000/api/user-token");
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      setName(decoded.name);
+      setExpire(decoded.exp);
+    } catch (error) {
+      if (error.response) {
+        navigate("/login");
+      }
+    }
+  };
+
+  const axiosJWT = Axios.create();
+
+  axiosJWT.interceptors.request.use(
+    async (config) => {
+      const currentDate = new Date();
+      if (expire * 1000 < currentDate.getTime()) {
+        const response = await Axios.get(
+          "http://localhost:5000/api/user-token"
+        );
+        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setExpire(decoded.exp);
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+  const getUser = async () => {
+    const response = await axiosJWT.get("http://localhost:5000/api/users", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setUsers(response.data);
+  };
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import ReactPaginate from "react-paginate";
+import LoadingSpinner from "../UI/LoadingSpinner";
+
+import { IoMdTrash, IoIosConstruct } from "react-icons/io";
+import { IoEyeSharp, IoSearchSharp } from "react-icons/io5";
+import styles from "./TableDocument.module.scss";
+import { Link } from "react-router-dom";
+
+const TableDocument = () => {
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const dataPerPage = 5;
+  const pagesVisited = pageNumber * dataPerPage;
+  const pageCount = Math.ceil(data.length / dataPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+  const getDocument = () => {
+    Axios.get("http://localhost:5000/api/documents", {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJuYW1lIjoiVGVzdCBMb2dpbiIsImVtYWlsIjoibG9naW5AZ21haWwuY29tIiwiaWF0IjoxNjUzNzQxODA1LCJleHAiOjE2NTQzNDY2MDV9._aGz7_Fj8yIwxEBeXGXiJLCwd3_MH-GDXYKuauUDbes",
+      },
+    }).then((resp) => {
+      const data = resp.data;
+      setData(data);
+      setIsLoading(false);
+    });
+    console.log("test documents");
+  };
+
+  useEffect(() => {
+    getDocument();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="centered">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  const deleteDocument = async (id) => {
+    try {
+      await Axios.delete(`http://localhost:5000/api/document/${id}`);
+      getDocument();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <>
+      <div className={styles.search_container}>
+        <div className={styles.search}>
+          <input
+            placeholder="Search document...?"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button>
+            <IoSearchSharp />
+          </button>
+        </div>
+      </div>
+      <div></div>
+      <div className={styles.table_container}>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr className={styles.trHead}>
+              <th className={styles.th_no}>No</th>
+              <th className={styles.th}>Nama Document</th>
+              <th className={styles.th}>Link</th>
+              <th className={styles.th}>Upload</th>
+              <th className={styles.th_btn}>Action</th>
+            </tr>
+          </thead>
+          <tbody className={styles.tbody}>
+            {data
+              .filter((value) => {
+                if (search === "") {
+                  return value;
+                } else if (
+                  value.name.toLowerCase().includes(search.toLowerCase()) ||
+                  value.link.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return value;
+                }
+              })
+              .slice(pagesVisited, pagesVisited + dataPerPage)
+              .map((doc, index, key) => (
+                <tr className={styles.trBody} key={doc.id}>
+                  <td className={styles.td_no}>{index + 1}</td>
+                  <td className={styles.td}>{doc.name}</td>
+                  <td className={styles.td}>{doc.link}</td>
+                  <td className={styles.td}>{doc.createdAt}</td>
+                  <td className={styles.td_icon}>
+                    <button onClick={() => deleteDocument(doc.id)}>
+                      <IoMdTrash />
+                    </button>
+                    <button onClick={() => console.log(doc.id)}>
+                      <IoEyeSharp />
+                    </button>
+                    <button>
+                      <Link
+                        className={styles.link}
+                        to={`/document-page/edit/${doc.id}`}
+                      >
+                        <IoIosConstruct />
+                      </Link>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={styles.contBut}
+          previousLinkClassName={styles.prevBut}
+          nextLinkClassName={styles.nextBut}
+          disabledClassName={styles.disBut}
+          activeClassName={styles.activeBut}
+        />
+      </div>
+    </>
+  );
+};
+
+export default TableDocument;
+
+
+-----------------------------------------------------------
+
+export const editUserProfile = async (req, res) => {
+  const { name, email, isSuperAdmin, password, confPassword } = req.body;
+  if (password !== confPassword)
+    return res
+      .status(400)
+      .json({ msg: "Password dan Confirm Password tidak cocok !" });
+  const salt = await bcrypt.genSalt();
+  const hashPassword = await bcrypt.hash(password, salt);
+  try {
+    await User.update({
+      name: name,
+      email: email,
+      isSuperAdmin: isSuperAdmin,
+      password: hashPassword,
+    });
+    res.json({ msg: "New User Added to DB" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+--------------------------------------------------------------------
+
+<div className={styles.muiTF}>
+              <TextField
+                required
+                id="email"
+                label="Email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                autoComplete="off"
+              />
+              <TextField
+                required
+                id="password"
+                label="Password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div> 
+
+---------------------------------------------------------------------------
+
+<div className={styles.edit}>
+                  <div className={styles.edit_control}>
+                    <label>Edit Workspace Name :</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={data?.data.name}
+                    />
+                  </div>
+                  <div className={styles.btn_control}>
+                    <button
+                      onClick={() =>
+                        deleteWorkspaceMutation.mutate({ id: workspaceId })
+                      }
+                    >
+                      <IoMdTrash className={styles.dlt} />
+                    </button>
+                    <button onClick={(e) => update(e)}>
+                      <IoMdDoneAll className={styles.updt} />
+                    </button>
+                  </div>
+                </div>
+
+
+ const Toaster = () => {
+    toast.success("Workspace Updated...", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+  };
+
+  
+
+  const deleteWorkspaceMutation = useMutation(deleteWorkspace, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("workspaces");
+      toast.error("Workspace Deleted...", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+      navigate("/workspace-page");
+    },
+  });
+
+  const update = async (e) => {
+    e.preventDefault();
+    updateWorkspace(workspaceId, name);
+    setName("");
+    refetch();
+    Toaster();
+  };
+
+  
+
+
+
+
+
+
+
+       

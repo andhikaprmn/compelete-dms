@@ -1,0 +1,67 @@
+.card_container {
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(1, 97, 186, 0.1);
+  box-shadow: 5px 5px 15px -1px rgba(6, 80, 229, 0.1);
+  background: white;
+  color: #1e293b;
+  padding: 1rem;
+  border: 1px solid rgb(172, 210, 247);
+  border-radius: 5px;
+
+  .card_content {
+    display: flex;
+    justify-content: space-between;
+
+    .info {
+      p {
+        font-size: 10px;
+      }
+
+      h3 {
+        font-size: 15px;
+        font-weight: 600;
+
+        .link {
+          text-decoration: none;
+          color: black;
+          &:hover {
+            color: blue;
+            background-color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+          }
+        }
+      }
+
+      h4 {
+        font-size: 12px;
+        font-weight: 400;
+        color: red;
+      }
+
+      span {
+        color: rgb(197, 137, 25);
+        font-size: 12px;
+      }
+    }
+
+    .action {
+      button {
+        border: none;
+        background-color: #fff;
+        border-radius: 50%;
+        font-size: 1rem;
+
+        .link {
+          text-decoration: none;
+        }
+
+        &:hover {
+          background-color: #fff;
+          border-radius: 50%;
+          color: red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

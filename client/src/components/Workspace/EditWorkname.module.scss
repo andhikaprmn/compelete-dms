@@ -1,0 +1,60 @@
+.edit {
+  display: flex;
+  justify-content: space-between;
+
+  .edit_control {
+    display: flex;
+    width: 100%;
+
+    input {
+      font-size: 1rem;
+      width: 100%;
+      border: 1px grey solid;
+      border-radius: 5px;
+      padding-left: 10px;
+      font-family: "Poppins";
+      background-color: #fff;
+    }
+  }
+
+  .btn_control {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border: 1px solid grey;
+      margin-left: 20px;
+      background: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 5px;
+      cursor: pointer;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+        background: blue;
+      }
+
+      .updt {
+        font-size: 25px;
+        color: #bebebe;
+        &:hover {
+          color: #35027d;
+        }
+      }
+    }
+
+    span {
+      margin-left: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #838383;
+      &:hover {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+}

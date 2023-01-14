@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn.syncfusion.com/ej2/bootstrap5.css");
+
+body {
+  --margin-xl: 4rem;
+  --margin-lg: 3rem;
+  --margin-md: 2rem;
+  --margin-sm: 1rem;
+  --margin-xs: 0.8rem;
+  --margin-xxs: 0.5rem;
+
+  --padding-xl: 4rem;
+  --padding-lg: 3rem;
+  --padding-md: 2rem;
+  --padding-sm: 1rem;
+  --padding-xs: 0.8rem;
+  --padding-xxs: 0.5rem;
+
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #edf0fd;
+}
+
+.App {
+  display: flex;
+}
+
+.loginform {
+  margin: 0;
+  padding: 0;
+  background: #343434;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-left: 20px;
+}
+
+.notfound {
+  margin: 0;
+  padding: 0;
+}

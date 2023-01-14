@@ -1,0 +1,114 @@
+.cards_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  @media screen and (max-width: 470px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.action {
+  padding-bottom: 20px;
+
+  button {
+    white-space: nowrap;
+    padding: var(--padding-xxs) var(--padding-xs);
+    outline: none;
+    border: none;
+    background: #6366f1;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 200ms ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    &:hover {
+      background: #4648b4;
+    }
+  }
+}
+
+.search_container {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(207, 231, 255);
+    border-radius: 5px;
+    gap: 10px;
+
+    input {
+      padding: 0.5rem;
+      padding-left: 3rem;
+      width: 100%;
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+      background: #fff;
+      box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+
+    button {
+      border: none;
+      background: #fff;
+      color: rgb(0, 0, 0);
+      font-size: 1.4rem;
+      margin-top: 10px;
+      padding-left: 5px;
+      position: absolute;
+      transition: background 200ms ease-in-out;
+      display: flex;
+      align-items: center;
+      z-index: 10px;
+      opacity: 0.5;
+    }
+  }
+}
+
+.pagBut {
+  width: 100%;
+  margin-top: 20px;
+  padding: 1rem;
+  font-size: 13px;
+  font-weight: 400;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+  a {
+    padding: 10px;
+    margin: 6px;
+    border-radius: 5px;
+    color: #8a8989;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+    }
+  }
+}
+
+.activeBut {
+  a {
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    color: black;
+    font-weight: 500;
+  }
+}

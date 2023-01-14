@@ -1,0 +1,74 @@
+.container {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 7px;
+  border: 1px solid rgb(190, 238, 255);
+  padding: 1.2rem;
+  box-shadow: 5px 5px 15px -1px rgba(0, 16, 234, 0.1);
+  color: rgb(30, 41, 59);
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(0, 79, 163);
+    margin-bottom: 10px;
+  }
+
+  .dropdown {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: auto 100px;
+    // justify-content: space-between;
+    background-color: rgb(254, 254, 254);
+    border: 1px solid grey;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+
+    .action {
+      margin-right: 2rem;
+      button {
+        cursor: pointer;
+        width: 100%;
+        color: rgb(0, 0, 0);
+        border: none;
+        font-size: 1rem;
+        background-color: white;
+
+        &:hover {
+          color: rgb(0, 78, 142);
+        }
+      }
+    }
+
+    .dropselect {
+      margin-left: 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .itemslist {
+    background-color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1px solid grey;
+    height: fit-content;
+    max-height: 250px;
+    overflow-y: scroll;
+    font-size: 1rem;
+
+    .dropitems {
+      margin: 1rem;
+      padding-left: 1rem;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: aliceblue;
+        border: none;
+        border-radius: 10px;
+        max-width: 100%;
+      }
+    }
+  }
+}

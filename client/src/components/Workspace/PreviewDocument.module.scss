@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 7px;
+  border: 1px solid rgb(190, 238, 255);
+  padding: 1.2rem;
+  box-shadow: 5px 5px 15px -1px rgba(0, 16, 234, 0.1);
+  color: rgb(30, 41, 59);
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(0, 79, 163);
+  }
+
+  .documentContain {
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgb(40, 102, 2);
+    }
+
+    span {
+      font-size: 1rem;
+      color: rgb(178, 113, 1);
+    }
+  }
+
+  .link {
+    display: flex;
+    justify-content: flex-end;
+
+    .linkText {
+      text-decoration: none;
+      font-weight: 400;
+      color: black;
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &:hover {
+        cursor: pointer;
+        color: rgb(129, 129, 129);
+      }
+    }
+  }
+}

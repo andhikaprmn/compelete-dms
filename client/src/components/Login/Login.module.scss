@@ -1,0 +1,194 @@
+.login_contain {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+
+  .bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .loginform {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid rgb(161, 233, 255);
+    border-radius: 7px;
+    height: 65vh;
+
+    margin-top: 5%;
+    box-shadow: 0.5rem 0.5rem 2rem -1rem rgb(0, 93, 170);
+
+    .logo {
+      width: 100%;
+      img {
+        border: none;
+      }
+    }
+
+    .login_input {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      .logoFolder {
+        display: flex;
+        border: solid;
+        width: 100%;
+        justify-content: center;
+
+        img {
+          width: 20%;
+        }
+      }
+
+      h1 {
+        text-align: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        color: #001e81;
+      }
+
+      h2 {
+        text-align: center;
+        font-weight: 500;
+        color: #001e81;
+        font-size: 1rem;
+      }
+
+      h3 {
+        text-align: center;
+        font-weight: 450;
+        color: #001e81;
+        font-size: 0.8rem;
+      }
+
+      span {
+        text-align: center;
+      }
+
+      .control {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        P {
+          width: 100%;
+          text-align: center;
+          background-color: #ffe3e3;
+          border-radius: 5px;
+          color: rgb(250, 39, 39);
+        }
+
+        .muiTF {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        label {
+          font-size: 0.8rem;
+          color: rgb(0, 0, 0);
+        }
+
+        input {
+          display: block;
+          border: 1px solid rgb(209, 211, 212);
+          border-radius: 6px;
+          width: 350px;
+          margin: auto;
+          margin-bottom: 1.5rem;
+          padding: 0.2rem 1rem;
+          font-size: small;
+          color: black;
+          background-color: rgb(243, 248, 252);
+          transition: all 0.1s ease-in-out;
+          &:focus {
+            outline: none;
+            border: none;
+          }
+          &:hover {
+            outline: 0.5px solid rgb(220, 220, 220);
+            box-shadow: 2px 2px 9px -2px rgb(219, 221, 222);
+          }
+        }
+      }
+      @media screen and (max-width: 570px) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .sub_button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 100%;
+        background: #001e81;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s ease;
+        font-size: 0.8rem;
+
+        &:hover {
+          background: rgb(5, 117, 165);
+        }
+      }
+    }
+
+    .help {
+      border: 3px solid rgb(150, 150, 150);
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 25px;
+      color: grey;
+      cursor: pointer;
+
+      h3 {
+        font-size: 0.8rem;
+      }
+
+      &:hover {
+        color: black;
+        background: grey;
+      }
+    }
+
+    @media screen and (max-width: 570px) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      height: 80%;
+    }
+  }
+
+  @media screen and (min-width: 570px) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+}

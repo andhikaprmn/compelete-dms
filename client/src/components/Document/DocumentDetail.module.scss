@@ -1,0 +1,218 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  .back_icon {
+    display: flex;
+    .link {
+      font-size: 1.5rem;
+      color: rgb(0, 0, 188);
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(96, 96, 253);
+      }
+    }
+  }
+
+  .title_icon {
+    h1 {
+      color: rgb(0, 0, 188);
+      font-size: 1.5rem;
+    }
+  }
+
+  .delete_icon {
+    button {
+      cursor: pointer;
+      background-color: #edf0fd;
+      font-size: 1.5rem;
+      color: rgb(0, 0, 188);
+      border: none;
+
+      &:hover {
+        color: #ef0000;
+      }
+    }
+  }
+}
+
+.cover {
+  display: flex;
+  // background: rgb(68, 89, 124);
+  // border-radius: 7px;
+  margin-bottom: 1rem;
+
+  .desc {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid grey;
+
+    table {
+      text-align: left;
+
+      th {
+        font-size: 1rem;
+        padding-left: 20px;
+        padding-right: 28px;
+        border-right: 1px solid gray;
+      }
+
+      td {
+        font-size: 1rem;
+        padding-left: 20px;
+      }
+
+      .docname {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          background: #fff;
+          border: none;
+          .iconEdit {
+            font-size: 1rem;
+            cursor: pointer;
+
+            &:hover {
+              color: rgb(172, 192, 251);
+            }
+          }
+        }
+      }
+
+      .link {
+        color: blue;
+      }
+    }
+  }
+}
+
+.display {
+  border: 1px grey solid;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+}
+
+// .container {
+//   .content {
+//     position: absolute;
+//     background-color: white;
+//     padding: 2rem;
+//     border-radius: 14px;
+//     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+//     z-index: 30;
+//     animation: slide-down 300ms ease-out forwards;
+
+//     h2 {
+//       border-bottom: #1e293b solid;
+//     }
+
+//     .form_input {
+//       display: flex;
+//       justify-content: space-between;
+//       flex-direction: column;
+
+//       .form {
+//         margin-bottom: 10px;
+
+//         label {
+//           font-size: 18px;
+//           font-family: "Poppins";
+//         }
+
+//         input {
+//           font-size: 18px;
+//           width: 100%;
+//           border: none;
+//           border-radius: 5px;
+//           font-family: "Poppins";
+//           display: flex;
+//           padding-left: 10px;
+//           background-color: #e7f8f8;
+//         }
+//       }
+
+//       .file {
+//         padding-top: 30px;
+//         padding-bottom: 10px;
+//         background-color: #e7f8f8;
+//         border: 2px dashed;
+//         border-radius: 10px;
+//         display: flex;
+//         justify-content: space-between;
+//         flex-direction: column;
+//         align-items: center;
+//         text-align: center;
+
+//         input {
+//           position: relative;
+//           max-width: 200px;
+//           height: 40px;
+//           z-index: 2;
+//           cursor: pointer;
+//           opacity: 0;
+//         }
+
+//         button {
+//           position: absolute;
+//           width: 30%;
+//           height: 12%;
+//           z-index: 1;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           color: white;
+//           background-color: #5052c5;
+//           font-size: 1.1rem;
+//           border: none;
+//           border-radius: 7px;
+//           outline: none;
+//           cursor: pointer;
+//           transition: background-color 0.4s;
+//           box-shadow: 0px 1px 2px;
+//         }
+
+//         p {
+//           padding-top: 50px;
+//           font-size: medium;
+//         }
+//       }
+//     }
+
+//     .btn {
+//       padding-top: 10px;
+//       text-align: center;
+
+//       button {
+//         width: 100px;
+//         border-radius: 10px;
+//         border: none;
+//         color: white;
+//         cursor: pointer;
+//         font-size: medium;
+//         background-color: #5052c5;
+
+//         &:hover {
+//           background: #4648b4;
+//         }
+//       }
+//     }
+
+//     @media screen and (max-width: 570px) {
+//       width: auto;
+//       left: 10%;
+//       right: 10%;
+//     }
+
+//     @media screen and (min-width: 570px) {
+//       width: auto;
+//       left: 10%;
+//       right: 10%;
+//     }
+//   }
+// }

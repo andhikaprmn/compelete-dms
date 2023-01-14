@@ -1,0 +1,58 @@
+@use "./Submenus/Icons";
+
+.container {
+  display: flex;
+  align-items: center;
+  // padding: var(--padding-sm);
+  padding: 5px;
+  border: none;
+  position: sticky;
+  top: 0;
+  background: #edf0fd;
+  margin-left: 20px;
+  margin-right: 10px;
+  z-index: 10;
+
+  span {
+    font-size: 10px;
+    font-weight: 400;
+    width: 100%;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  svg {
+    font-size: 0.7rem;
+  }
+}
+
+.burger_container {
+  display: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  color: blue;
+
+  &:hover {
+    color: rgb(104, 104, 251);
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+  }
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 0.5rem;
+
+  @media screen and (max-width: 360px) {
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+}

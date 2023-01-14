@@ -1,0 +1,53 @@
+.desc {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: var(--padding-md) var(--padding-md);
+  color: rgb(0, 0, 188);
+  border: 1px solid rgb(224, 224, 224);
+
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: var(--margin-xxs);
+    font-size: 1rem;
+    @media screen and (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+
+    svg {
+      font-size: 2rem;
+      flex-shrink: 0;
+      @media screen and (max-width: 600px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+    color: rgb(2, 22, 155);
+    font-size: 1rem;
+    @media screen and (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  h3 {
+    font-weight: 400;
+    color: rgb(28, 30, 44);
+    font-size: 1rem;
+    @media screen and (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.cr {
+  margin-top: 10px;
+  span {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
